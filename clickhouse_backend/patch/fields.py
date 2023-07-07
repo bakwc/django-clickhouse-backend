@@ -10,7 +10,7 @@ def key_transform_as_clickhouse(self, compiler, connection):
             sql = f"{sql}[%s]"
             params.append(int(key) + 1)
         else:
-            sql = f"tupleElement({sql}, %s)"
+            sql = f"({sql}, %s)"
             params.append(key)
     return sql, tuple(params)
 
