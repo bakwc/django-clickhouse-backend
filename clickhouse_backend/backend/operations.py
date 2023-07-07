@@ -199,6 +199,10 @@ class DatabaseOperations(BaseDatabaseOperations):
         else:
             return sql
 
+    def format_for_duration_arithmetic(self, sql):
+        # https://clickhouse.com/docs/en/sql-reference/data-types/special-data-types/interval
+        return "INTERVAL %s MICROSECOND" % sql
+
     def distinct_sql(self, fields, params):
         if fields:
             params = [param for param_list in params for param in param_list]
