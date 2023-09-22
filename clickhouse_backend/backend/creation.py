@@ -25,6 +25,7 @@ class DatabaseCreation(BaseDatabaseCreation):
         return cursor.fetchone() is not None
 
     def create_test_db(self, verbosity=1, autoclobber=False, serialize=True, keepdb=False):
+        return
         super().create_test_db(verbosity, autoclobber, serialize, keepdb)
         test_settings = self.connection.settings_dict["TEST"]
         if "fake_transaction" in test_settings:
