@@ -46,6 +46,7 @@ class DatabaseIntrospection(BaseDatabaseIntrospection):
 
     def get_table_list(self, cursor):
         """Return a list of table and view names in the current database."""
+        return []
         cursor.execute("""
             SELECT table_name,
             CASE table_type WHEN 2 THEN 'v' ELSE 't' END

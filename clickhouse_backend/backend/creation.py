@@ -31,6 +31,9 @@ class DatabaseCreation(BaseDatabaseCreation):
         if "fake_transaction" in test_settings:
             self.connection.fake_transaction = test_settings["fake_transaction"]
 
+    def destroy_test_db(self, old_database_name, verbosity=1):
+        pass
+
     def _execute_create_test_db(self, cursor, parameters, keepdb=False):
         try:
             if keepdb and self._database_exists(cursor, parameters["dbname"]):
